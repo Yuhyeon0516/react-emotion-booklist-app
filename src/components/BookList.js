@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 import formatAuthors from "../helpers/formatAuthors";
 
 const Book = ({ book }) => {
+  const IMG_BASE_URL = "http://books.google.com/books";
   return (
     <li>
       <div>
-        <img
-          src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
-          alt={`${book.volumeInfo.title} book`}
-        />
+        <img src={`${IMG_BASE_URL}/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`} alt={`${book.volumeInfo.title} book`} />
         <div>
-          <Link to={`/books/${book.id}`}>
+          <Link to={`/book/${book.id}`}>
             <h3>{book.volumeInfo.title}</h3>
           </Link>
           <p>{formatAuthors(book.volumeInfo.authors)}</p>

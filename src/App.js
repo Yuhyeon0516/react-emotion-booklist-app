@@ -1,7 +1,10 @@
+/** @jsxImportSource @emotion/react */
+
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import BookDetailPage from "./pages/BookDetailPage";
 import { Global, css } from "@emotion/react";
+import Footer from "./components/Footer";
 
 const Layout = () => {
   return (
@@ -24,7 +27,15 @@ const Layout = () => {
           }
         `}
       />
-      <Outlet />
+      <div
+        css={css`
+          min-height: 90vh;
+        `}
+      >
+        <Outlet />
+      </div>
+
+      <Footer />
     </div>
   );
 };

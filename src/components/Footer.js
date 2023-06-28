@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const Footer = () => {
+const Footer = ({ isDark, setIsDark }) => {
   return (
     <div
       css={css`
@@ -25,8 +25,9 @@ const Footer = () => {
             transform: translate(-2px);
           }
         `}
+        onClick={() => setIsDark(!isDark)}
       >
-        dark
+        Go to {isDark ? "light" : "dark"}
       </button>
     </div>
   );

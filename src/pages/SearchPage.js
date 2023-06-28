@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import BookSearchForm from "../components/BookSearchForm";
 import axios from "axios";
+import Loader from "../components/Loader";
+import BookList from "../components/BookList";
 
 const LogoText = styled.h3`
   margin: 0;
@@ -45,6 +47,7 @@ const SearchPage = () => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -66,6 +69,12 @@ const SearchPage = () => {
           </HeaderSearchForm>
         </HeaderContainer>
       </Header>
+      <Container>
+        <Loader loading={loading}>
+          "<strong>{searchTerm}</strong>" 책을 찾고 있습니다.
+        </Loader>
+        <BookList books={books} />
+      </Container>
     </>
   );
 };
